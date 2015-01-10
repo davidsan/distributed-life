@@ -12,15 +12,29 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+/**
+ * Implementation of Conway's Game of Life using Hadoop MapReduce
+ * ============================================================================
+ * The input file contains all cells alive at the current generation. The
+ * generated output contains all cells alive in the next generation. The main
+ * function takes an argument (depth) which states how many generation must be
+ * calculated. For each generation, one MapReduce operation will be executed.
+ * 
+ */
 public class Conway {
 
+	/**
+	 * The mapper will output the coordinate of each neighbour of the
+	 * alive-cells, with a value of one (1). The mapper will also output the
+	 * coordinate of the alive-cells at the current generation, with a value of
+	 * zero (0).
+	 * 
+	 */
 	public static class ConwayMapper extends
 			Mapper<Object, Text, Text, IntWritable> {
 
 		private final static IntWritable zero = new IntWritable(0);
 		private final static IntWritable one = new IntWritable(1);
-
-		// private Case position = new Case();
 
 		public void map(Object key, Text value, Context context)
 				throws IOException, InterruptedException {
@@ -47,6 +61,14 @@ public class Conway {
 		}
 	}
 
+	/**
+	 * The reducer will sum the values associated with a given coordinate and
+	 * output the coordinate if the rules to be alive are met. The rules of
+	 * Conway's Game of Life states that a cell will be alive at the next
+	 * generation if the cell is surrounded by exactly 3 cells alive or if the
+	 * cell is alive at the current generation and surrounded by 2 cells alive.
+	 * 
+	 */
 	public static class ConwayReducer extends
 			Reducer<Text, IntWritable, Text, NullWritable> {
 
@@ -69,6 +91,10 @@ public class Conway {
 		}
 	}
 
+	/**
+	 * The main function takes one argument : the number of generation to
+	 * compute. The input file must be located at depth_0/
+	 */
 	public static void main(String[] args) throws Exception {
 
 		if (args.length != 1) {

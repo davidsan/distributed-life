@@ -1,5 +1,9 @@
 import java.util.Random;
 
+/**
+ * Generator of random input files for Conway's Game of Life
+ *
+ */
 public class InputGenerator {
 	public static void main(String[] args) {
 		Random rand = new Random();
