@@ -15,7 +15,7 @@ $ mvn install
 ```
 Create the input file (or copy one from the samples directory) :
 ```
-$ cp samples/Oscillators/Blinker/file1 depth_0/
+$ cp samples/Oscillators/Blinker/file1 depth_0/part-r-00000
 ```
 Launch the jobs :
 ```
@@ -24,6 +24,12 @@ $ hadoop jar target/conway-0.0.1-SNAPSHOT.jar Conway 5
 Inspect the result :
 ```
 $ tail -n +1 depth_*/part-r-*
+
+==> depth_0/part-r-00000 <==
+1,1
+1,2
+1,3
+
 ==> depth_1/part-r-00000 <==
 0,2
 1,2
