@@ -18,6 +18,8 @@ Create the input file (or copy one from the samples directory) into a directory 
 $ mkdir depth_0
 $ cp samples/Oscillators/Blinker/file1 depth_0/part-r-00000
 ```
+The input file should be named `part-r-00000` for convenience with the last two commands of this document.
+
 Launch the jobs :
 ```
 $ hadoop jar target/conway-0.0.1-SNAPSHOT.jar Conway 5
