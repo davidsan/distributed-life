@@ -13,8 +13,9 @@ Build using maven :
 ```
 $ mvn install
 ```
-Create the input file (or copy one from the samples directory) :
+Create the input file (or copy one from the samples directory) into a directory named `depth_0`:
 ```
+$ mkdir depth_0
 $ cp samples/Oscillators/Blinker/file1 depth_0/part-r-00000
 ```
 Launch the jobs :
