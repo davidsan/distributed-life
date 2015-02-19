@@ -1,5 +1,5 @@
 # Conway's Game of Life using Hadoop MR2
-[![Build Status](https://magnum.travis-ci.com/davidsan/distributed-life.svg?token=gNHewQpaNm3oE2H2fyKW&branch=master)](https://magnum.travis-ci.com/davidsan/distributed-life)
+[![Build Status](https://travis-ci.org/davidsan/distributed-life.svg)](https://travis-ci.org/davidsan/distributed-life)
 
 Implementation of Conway's Game of Life using Hadoop 2.6.0 MapReduce (MR2)
 
